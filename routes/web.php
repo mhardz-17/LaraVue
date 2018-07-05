@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Route::group(['prefix' =>'projects'], function(){
     Route::get('/', 'ProjectController@index');
+    Route::get('/list', 'ProjectController@getList');
 });
