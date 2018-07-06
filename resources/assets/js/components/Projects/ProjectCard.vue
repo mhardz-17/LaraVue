@@ -5,6 +5,7 @@
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.description }}</p>
             <a href="#" class="btn btn-primary">Edit</a>
+            <button class="btn btn-primary" @click="">Delete</button>
         </div>
     </div>
 </template>
@@ -14,9 +15,9 @@
         data: function(){
             return {
                 content: 'Hello World',
-                project: {
-
-                }
+                // project: {
+                //
+                // }
             }
         },
         props:['project'],

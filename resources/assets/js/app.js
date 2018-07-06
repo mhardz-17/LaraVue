@@ -21,7 +21,7 @@ Vue.use(VueAxios, axios)
  */
 
 Vue.component('project-list', require('./components/Projects/List.vue'));
-Vue.component('project-card', require('./components/Projects/ProjectCard.vue'));
+// Vue.component('project-card', require('./components/Projects/ProjectCard.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -17,34 +17,63 @@ class ProjectController extends Controller
         return view('projects/index');
     }
 
-    public function getList()
+    public function getList(Request $request)
     {
-        $data = [
-            'projects' => [
-                [
-                    'id' => 1,
-                    'title' => 'Hello World',
-                    'description' => 'Hhahaha this a test that i just want to do something to make it work hahaha',
-                    'start_date' => Carbon::now()->toDateString(),
-                    'end_date' => Carbon::now()->toDateString(),
-                    'member_count' => 15,
-                    'total_task' => 10,
-                    'completed_task_count' => 5,
-                ],
-                [
-                    'id' => 2,
-                    'title' => 'Hello World',
-                    'description' => 'Hhahaha this a test that i just want to do something to make it work hahaha',
-                    'start_date' => Carbon::now()->toDateString(),
-                    'end_date' => Carbon::now()->toDateString(),
-                    'member_count' => 15,
-                    'total_task' => 10,
-                    'completed_task_count' => 5,
+        $page = $request->get('page', 1);
+        if($page == 1) {
+            $data = [
+                'projects' => [
+                    [
+                        'id' => 1,
+                        'title' => 'Hello World',
+                        'description' => 'Hhahaha this a test that i just want to do something to make it work hahaha',
+                        'start_date' => Carbon::now()->toDateString(),
+                        'end_date' => Carbon::now()->toDateString(),
+                        'member_count' => 15,
+                        'total_task' => 10,
+                        'completed_task_count' => 5,
+                    ],
+                    [
+                        'id' => 2,
+                        'title' => 'Hello World',
+                        'description' => 'Hhahaha this a test that i just want to do something to make it work hahaha',
+                        'start_date' => Carbon::now()->toDateString(),
+                        'end_date' => Carbon::now()->toDateString(),
+                        'member_count' => 15,
+                        'total_task' => 10,
+                        'completed_task_count' => 5,
+                    ]
                 ]
-            ]
-        ];
+            ];
+        } else {
+            $data = [
+                'projects' => [
+                    [
+                        'id' => 1,
+                        'title' => 'Page 2 Desu',
+                        'description' => 'Hhahaha this a test that i just want to do something to make it work hahaha',
+                        'start_date' => Carbon::now()->toDateString(),
+                        'end_date' => Carbon::now()->toDateString(),
+                        'member_count' => 15,
+                        'total_task' => 10,
+                        'completed_task_count' => 5,
+                    ],
+                    [
+                        'id' => 2,
+                        'title' => 'Hello World in Page 2',
+                        'description' => 'Hhahaha this a test that i just want to do something to make it work hahaha',
+                        'start_date' => Carbon::now()->toDateString(),
+                        'end_date' => Carbon::now()->toDateString(),
+                        'member_count' => 15,
+                        'total_task' => 10,
+                        'completed_task_count' => 5,
+                    ]
+                ]
+            ];
+        }
 
 
-        return \response()->json(collect($data));
+
+        return \response()->json($data);
     }
 }
