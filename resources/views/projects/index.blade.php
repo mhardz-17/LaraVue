@@ -2,5 +2,5 @@
 
 @section('content')
     <h1>Project List</h1>
-    <project-list></project-list>
+    <project-list :initial_projects='@json($projects)'></project-list>
 @endsection

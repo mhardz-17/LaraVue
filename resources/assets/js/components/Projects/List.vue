@@ -33,21 +33,23 @@
         data: function(){
             return {
                 content: 'Hello World',
-                projects: [],
-                page: 2
+                projects: this.initial_projects,
+                page: 1
             }
         },
         components: {
         },
-        mounted() {
-            this.fetchProjects()
-        },
+        props: ['initial_projects'],
+        // mounted() {
+        //     this.fetchProjects()
+        // },
         methods: {
             fetchProjects () {
                 let self = this;
                 let url = self.page ? '/projects/list?page=' + self.page : '/projects/list';
                 this.$http({url: url, method: 'GET'}).then(function (response) {
                     self.projects = [];
+                    console.log(response);
                     _.forEach(response.data.projects, function (project) {
                         self.projects.push(project)
                     });

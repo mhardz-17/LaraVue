@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Carbon\Carbon;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Response;
@@ -12,13 +13,21 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
-        return view('projects/index');
+        $projects = Project::all()->toArray();
+        return view('projects/index',compact('projects'));
     }
 
     public function getList(Request $request)
     {
+
+        return \response()->json(['projects' => Project::all()->toArray()]);
+
         $page = $request->get('page', 1);
         if($page == 1) {
             $data = [
