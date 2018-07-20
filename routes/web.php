@@ -19,3 +19,7 @@ Route::group(['prefix' =>'projects'], function(){
     Route::get('/', 'ProjectController@index');
     Route::get('/list', 'ProjectController@getList');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

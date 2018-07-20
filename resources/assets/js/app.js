@@ -20,9 +20,14 @@ Vue.use(VueAxios, axios)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('project-list', require('./components/Projects/List.vue'));
+// Vue.component('project-list', require('./components/Projects/List.vue'));
 // Vue.component('project-card', require('./components/Projects/ProjectCard.vue'));
 
+import ProjectList from './components/Projects/List.vue'
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components: {
+        ProjectList
+    }
 });
